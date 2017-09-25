@@ -17,7 +17,6 @@ def load_cookie(driver, file_path):
     with open(file_path) as r_fh:
         driver.execute_script(r_fh.read())
 
-
 current_path = os.path.dirname(__file__)
 if not current_path:
     current_path = os.getcwd()
@@ -29,6 +28,7 @@ prefs = {
     "profile.default_content_settings.popups": 0
 }
 options = webdriver.ChromeOptions()
+options.binary_location = 'usr/bin/google-chrome-stable'
 options.add_experimental_option('prefs', prefs)
 options.add_argument('window-size=1600x900')
 options.add_argument('headless')
@@ -38,7 +38,7 @@ driver.get("http://221.7.195.46:8008/#/signin")
 # driver.delete_all_cookies()
 # load_cookie(driver, 'cookie.txt')
 # driver.get('http://221.7.195.46:8008/#/main/index/dashboard')
-driver.maximize_window()
+# driver.maximize_window()
 
 locator = (By.NAME, 'username')
 try:
