@@ -6,6 +6,7 @@ from selenium.common import exceptions as HE
 import os
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from time import sleep
+import xlrd
 
 def save_cookie(driver, file_path):
     cookie_str = 'document.cookie="{name}={value}; path={path}; domain={domain}";\n'
@@ -104,10 +105,13 @@ def modify_user_password(user_info_file):
     except Exception.__bases__ as err:
         print(err)
 
-    with open(user_info_file) as r_fh:
-        username_gen = (line.strip().split()[1] for line in r_fh.readlines())
+    with xlrd.open_workbook(user_info_file) as book:
+        sheet = book.sheet_by_index(0)
+        username_list = sheet.col_values(1)
+    # with open(user_info_file) as r_fh:
+    #     username_gen = (line.strip().split()[1] for line in r_fh.readlines())
 
-    for username in username_gen:
+    for username in username_list:
 
         locator = (By.CSS_SELECTOR, 'input[ng-model="controller.table.query.user_id"]')
         try:
