@@ -217,6 +217,4 @@ def modify_user_password(user_info_file):
     driver.quit()
 
 if __name__ == '__main__':
-    modify_user_password(u'华为区.txt')
-    modify_user_password(u'诺西区.txt')
-    modify_user_password(u'贝尔区.txt')
+    modify_user_password(u'各区账号.xlsx')
