@@ -2,4 +2,4 @@ run db
 docker run --name <container name> -p <host port : container port> --expose <container port> -d <image : tag> [--port 61111 --auth]
 
 run app link db
-docker run -it --name <container name> --cap-add SYS_ADMIN --link <other container name : other container alias> <image : tag> [/bin/bash/]
+docker run -it --name <container name> --cap-add SYS_ADMIN --link <other container name : other container alias> <image : tag> [/bin/bash]
