@@ -1,0 +1,16 @@
+net:
+   bindIp: [127.0.0.1, ...]
+   port: 27017
+security:
+   authorization: enabled
+
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+role: "readWrite"
