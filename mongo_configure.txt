@@ -14,3 +14,5 @@ db.createUser(
 )
 
 role: "readWrite"
+
+docker exec -it <container name> [mongo --port 61111 admin]
