@@ -33,6 +33,7 @@ def deal_excel(file_path, collection):
     os.remove(file_path)
     print('finish')
 
+
 def change_url(driver_obj, original_url, limit_time=30):
     '''新页面打开后等待url切换'''
     loop_limit = limit_time

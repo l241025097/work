@@ -31,9 +31,8 @@ class StaffTree(object):
         if regex_obj:
             return os.path.join(ls_path, new_file)
 
-    def download_file(self, dst_path_file='', store_path_file='', sign=''):
+    def download_file(self, dst_path_file='', store_path_file=''):
         ''' 下载指定文件 '''
-        sign = sign if sign else self.sign
         file_name = os.path.split(dst_path_file)[1]
         current_path = os.path.dirname(__file__)
         if not current_path:
